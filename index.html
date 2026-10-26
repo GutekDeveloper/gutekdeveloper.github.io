@@ -97,6 +97,12 @@
     .android { --accent: var(--coral); }
     .dzwignik { --accent: #ffc574; }
     .planer { --accent: #83a2ff; }
+    .mockup { --accent: #c4a1ff; }
+
+    /* Cztery kafelki: czwarty jest wyśrodkowany w drugim rzędzie na dużych ekranach. */
+    @media (min-width: 901px) {
+      .project-card.mockup { grid-column: 2; }
+    }
     .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .project-type { display: inline-flex; align-items: center; padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: #bdc7da; background: rgba(5,9,18,.24); font-size: 9px; font-weight: 800; letter-spacing: .075em; text-transform: uppercase; }
     .project-symbol { width: 47px; height: 47px; display: grid; place-items: center; overflow: hidden; flex: 0 0 auto; border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 15px; background: color-mix(in srgb, var(--accent) 10%, transparent); }
@@ -126,7 +132,7 @@
 
     @media (max-width: 900px) {
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .project-card:last-child { grid-column: 1 / -1; min-height: 300px; }
+      .project-card.mockup { grid-column: auto; }
     }
     @media (max-width: 620px) {
       .shell { width: calc(100% - 32px); }
@@ -241,6 +247,21 @@
           </div>
           <div class="card-bottom">
             <a class="button button-secondary" href="https://gutekdeveloper.github.io/planer-lekcji/" target="_blank" rel="noopener noreferrer">Otwórz Planer Lekcji <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+          </div>
+        </article>
+
+        <article class="project-card mockup">
+          <div class="card-top">
+            <span class="project-symbol"><img src="favicon_mockup.png" alt="Ikona Mockup Studio Pro" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><span class="symbol-fallback" hidden aria-hidden="true">▣</span></span>
+            <span class="project-type">Studio graficzne online</span>
+          </div>
+          <div class="card-body">
+            <span class="project-number">04 / NARZĘDZIA GRAFICZNE</span>
+            <h3>Mockup Studio Pro</h3>
+            <p>Twórz grafiki promocyjne z podglądem smartfona. Dopasuj format, tło i gradient, dodaj rozmycie, ustaw perspektywę 3D i wyeksportuj gotowy projekt do PNG.</p>
+          </div>
+          <div class="card-bottom">
+            <a class="button button-secondary" href="https://gutekdeveloper.github.io/MockupStudioPro/" target="_blank" rel="noopener noreferrer">Otwórz Mockup Studio Pro <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
           </div>
         </article>
       </div>
