@@ -38,7 +38,6 @@
     a { color: inherit; }
     a:focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
     .shell { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
-
     .topbar {
       position: relative;
       z-index: 2;
@@ -98,10 +97,16 @@
     .dzwignik { --accent: #ffc574; }
     .planer { --accent: #83a2ff; }
     .mockup { --accent: #c4a1ff; }
+    .liga { --accent: #35d07f; }
 
-    /* Cztery kafelki: czwarty jest wyśrodkowany w drugim rzędzie na dużych ekranach. */
+    /* Na dużych ekranach trzy karty są w pierwszym rzędzie, a dwie kolejne symetrycznie na środku. */
     @media (min-width: 901px) {
-      .project-card.mockup { grid-column: 2; }
+      .project-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .project-card:nth-child(1) { grid-column: 1 / span 2; grid-row: 1; }
+      .project-card:nth-child(2) { grid-column: 3 / span 2; grid-row: 1; }
+      .project-card:nth-child(3) { grid-column: 5 / span 2; grid-row: 1; }
+      .project-card.mockup { grid-column: 2 / span 2; grid-row: 2; }
+      .project-card.liga { grid-column: 4 / span 2; grid-row: 2; }
     }
     .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .project-type { display: inline-flex; align-items: center; padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: #bdc7da; background: rgba(5,9,18,.24); font-size: 9px; font-weight: 800; letter-spacing: .075em; text-transform: uppercase; }
@@ -132,7 +137,7 @@
 
     @media (max-width: 900px) {
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .project-card.mockup { grid-column: auto; }
+      .project-card.mockup, .project-card.liga { grid-column: auto; grid-row: auto; }
     }
     @media (max-width: 620px) {
       .shell { width: calc(100% - 32px); }
@@ -149,7 +154,7 @@
       .projects { padding: 27px 0 56px; }
       .section-head { align-items: start; flex-direction: column; gap: 8px; }
       .project-grid { grid-template-columns: 1fr; }
-      .project-card, .project-card:last-child { grid-column: auto; min-height: auto; padding: 21px; }
+      .project-card, .project-card:last-child { grid-column: auto; grid-row: auto; min-height: auto; padding: 21px; }
       .card-bottom { padding-top: 20px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
     }
@@ -262,6 +267,21 @@
           </div>
           <div class="card-bottom">
             <a class="button button-secondary" href="https://gutekdeveloper.github.io/MockupStudioPro/">Otwórz Mockup Studio Pro <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+          </div>
+        </article>
+
+        <article class="project-card liga">
+          <div class="card-top">
+            <span class="project-symbol"><img src="liga_podworkowa.png" alt="Logo Ligi podwórkowej" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><span class="symbol-fallback" hidden aria-hidden="true">⚽</span></span>
+            <span class="project-type">Rozgrywki piłkarskie</span>
+          </div>
+          <div class="card-body">
+            <span class="project-number">05 / PROJEKT SPORTOWY</span>
+            <h3>Liga podwórkowa</h3>
+            <p>Własna strona amatorskich rozgrywek piłkarskich. Aktualna tabela, terminarz spotkań, wyniki i drużyny z herbami — wszystko w jednym miejscu.</p>
+          </div>
+          <div class="card-bottom">
+            <a class="button button-secondary" href="https://gutekdeveloper.github.io/liga-podworkowa-test/">Otwórz ligę podwórkową <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
           </div>
         </article>
       </div>
